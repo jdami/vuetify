@@ -107,7 +107,7 @@ export default {
     },
     styles () {
       return {
-        left: this.calculatedLeft,
+        [this.$vuetify.rtl ? 'right' : 'left']: this.calculatedLeft,
         maxWidth: isNaN(this.maxWidth) ? this.maxWidth : `${this.maxWidth}px`,
         opacity: this.isActive ? 0.9 : 0,
         top: this.calculatedTop,

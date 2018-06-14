@@ -45,8 +45,8 @@ export default {
       },
       on: listeners,
       style: {
-        left: convertToUnit(props.left),
-        right: convertToUnit(props.right),
+        left: convertToUnit(this.$vuetify.rtl ? props.right : props.left),
+        right: convertToUnit(this.$vuetify.rtl ? props.left : props.right),
         position: props.absolute ? 'absolute' : 'relative'
       }
     }

@@ -164,7 +164,7 @@ export default {
         height: this.calculatedHeight,
         marginTop: `${this.marginTop}px`,
         maxHeight: `calc(100% - ${this.maxHeight}px)`,
-        transform: `translateX(${this.calculatedTransform}px)`,
+        transform: `translateX(${(this.$vuetify.rtl ? -1 : 1) * this.calculatedTransform}px)`,
         width: `${this.calculatedWidth}px`
       }
 
