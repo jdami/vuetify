@@ -111,8 +111,13 @@ export default {
     },
     styles () {
       return {
+<<<<<<< HEAD
         left: this.calculatedLeft,
         maxWidth: convertToUnit(this.maxWidth),
+=======
+        [this.$vuetify.rtl ? 'right' : 'left']: this.calculatedLeft,
+        maxWidth: isNaN(this.maxWidth) ? this.maxWidth : `${this.maxWidth}px`,
+>>>>>>> Added some conditional styles
         opacity: this.isActive ? 0.9 : 0,
         top: this.calculatedTop,
         zIndex: this.zIndex || this.activeZIndex
