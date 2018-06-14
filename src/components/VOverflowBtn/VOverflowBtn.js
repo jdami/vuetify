@@ -63,7 +63,7 @@ export default {
       if (!label) return label
 
       // Force 16px always
-      label.data.style.left = '16px'
+      label.data.style[this.$vuetify.rtl ? 'right' : 'left'] = '16px'
       delete label.data.style.position
 
       return label

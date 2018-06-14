@@ -130,7 +130,7 @@ export default {
         minWidth: this.calculatedMinWidth,
         maxWidth: this.calculatedMaxWidth,
         top: this.calculatedTop,
-        left: this.calculatedLeft,
+        [this.$vuetify.rtl ? 'right' : 'left']: this.calculatedLeft,
         transformOrigin: this.origin,
         zIndex: this.zIndex || this.activeZIndex
       }
