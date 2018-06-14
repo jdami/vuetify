@@ -70,6 +70,9 @@ export default {
 
       // Reset previously set styles from parent
       label.data.style = {}
+      // Force 16px always
+      label.data.style[this.$vuetify.rtl ? 'right' : 'left'] = '16px'
+      delete label.data.style.position
 
       return label
     },

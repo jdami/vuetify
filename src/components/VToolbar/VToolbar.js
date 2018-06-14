@@ -149,8 +149,16 @@ export default {
     styles () {
       return {
         marginTop: `${this.computedMarginTop}px`,
-        paddingRight: `${this.computedPaddingRight}px`,
-        paddingLeft: `${this.computedPaddingLeft}px`,
+        paddingRight: `${
+          this.$vuetify.rtl?
+          this.computedPaddingLeft :
+          this.computedPaddingRight
+        }px`,
+        paddingLeft: `${
+          this.$vuetify.rtl?
+          this.computedPaddingRight :
+          this.computedPaddingLeft
+        }px`,
         transform: `translateY(${this.computedTransform}px)`
       }
     }

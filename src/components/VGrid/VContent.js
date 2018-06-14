@@ -25,9 +25,9 @@ export default {
 
       return {
         paddingTop: `${top + bar}px`,
-        paddingRight: `${right}px`,
+        paddingRight: `${this.$vuetify.rtl ? left : right}px`,
         paddingBottom: `${footer + bottom}px`,
-        paddingLeft: `${left}px`
+        paddingLeft: `${this.$vuetify.rtl ? right : left}px`
       }
     }
   },

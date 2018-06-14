@@ -113,6 +113,7 @@ export default {
       return {
         left: this.calculatedLeft,
         maxWidth: convertToUnit(this.maxWidth),
+        [this.$vuetify.rtl ? 'right' : 'left']: this.calculatedLeft,
         opacity: this.isActive ? 0.9 : 0,
         top: this.calculatedTop,
         zIndex: this.zIndex || this.activeZIndex
