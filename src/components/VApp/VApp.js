@@ -32,6 +32,9 @@ export default {
       return {
         [`theme--${this.dark ? 'dark' : 'light'}`]: true
       }
+    },
+    dir () {
+      return this.$vuetify.rtl ? 'rtl' : 'auto';
     }
   },
 
@@ -49,7 +52,7 @@ export default {
     const data = {
       staticClass: 'application',
       'class': this.classes,
-      attrs: { 'data-app': true },
+      attrs: { 'data-app': true, dir: this.dir },
       domProps: { id: this.id },
       directives: [{
         name: 'resize',
