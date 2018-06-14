@@ -27,7 +27,7 @@ export default {
       return {
         display: 'block',
         opacity: this.isBooted ? 1 : 0,
-        transform: `translate(-50%, ${this.parallax}px)`
+        transform: `translate(${this.$vuetify.rtl ? 50 : -50}%, ${this.parallax}px)`
       }
     }
   },

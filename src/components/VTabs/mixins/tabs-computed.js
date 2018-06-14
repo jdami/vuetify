@@ -38,7 +38,7 @@ export default {
     },
     sliderStyles () {
       return {
-        left: `${this.sliderLeft}px`,
+        [this.$vuetify.rtl ? 'right' : 'left']: `${this.sliderLeft}px`,
         transition: this.sliderLeft != null ? null : 'none',
         width: `${this.sliderWidth}px`
       }
