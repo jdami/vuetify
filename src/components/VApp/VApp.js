@@ -7,6 +7,14 @@ import AppBreakpoint from './mixins/app-breakpoint'
 // Directives
 import Resize from '../../directives/resize'
 
+function setPageDirection () {
+  if (this.$vuetify.rtl) {
+    document.documentElement.dir = 'rtl'
+  } else {
+    document.documentElement.dir = 'ltr'
+  }
+}
+
 export default {
   name: 'v-app',
 
@@ -32,27 +40,26 @@ export default {
       return {
         [`theme--${this.dark ? 'dark' : 'light'}`]: true
       }
-    },
-    dir () {
-      return this.$vuetify.rtl ? 'rtl' : 'ltr'
     }
   },
 
   mounted () {
+    setPageDirection()
     this.$vuetify.dark = this.dark
   },
 
   watch: {
     dark () {
       this.$vuetify.dark = this.dark
-    }
+    },
+    '$vuetify.rtl': setPageDirection
   },
 
   render (h) {
     const data = {
       staticClass: 'application',
       'class': this.classes,
-      attrs: { 'data-app': true, dir: this.dir },
+      attrs: { 'data-app': true },
       domProps: { id: this.id },
       directives: [{
         name: 'resize',
