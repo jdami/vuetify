@@ -7,8 +7,6 @@ import AppBreakpoint from './mixins/app-breakpoint'
 // Directives
 import Resize from '../../directives/resize'
 
-import { syncPageDirection } from '../../util/helpers'
-
 /* @vue/component */
 export default {
   name: 'v-app',
@@ -41,12 +39,10 @@ export default {
   watch: {
     dark () {
       this.$vuetify.dark = this.dark
-    },
-    '$vuetify.rtl': setPageDirection
+    }
   },
 
   mounted () {
-    setPageDirection()
     this.$vuetify.dark = this.dark
   },
 
