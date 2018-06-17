@@ -41,9 +41,6 @@ export default {
       return {
         [`theme--${this.dark ? 'dark' : 'light'}`]: true
       }
-    },
-    dir () {
-      return this.$vuetify.rtl ? 'rtl' : 'ltr'
     }
   },
 
@@ -63,7 +60,7 @@ export default {
     const data = {
       staticClass: 'application',
       'class': this.classes,
-      attrs: { 'data-app': true, dir: this.dir },
+      attrs: { 'data-app': true },
       domProps: { id: this.id },
       directives: [{
         name: 'resize',
