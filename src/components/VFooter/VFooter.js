@@ -48,18 +48,18 @@ export default {
       }
 
       if (this.computedPaddingLeft) {
-        styles.paddingLeft = `${ 
-          this.$vuetify.rtl ?
-          this.computedPaddingRight :
-          this.computedPaddingLeft
+        styles.paddingLeft = `${
+          this.$vuetify.rtl
+            ? this.computedPaddingRight
+            : this.computedPaddingLeft
         }px`
       }
 
       if (this.computedPaddingRight) {
         styles.paddingRight = `${
-          this.$vuetify.rtl ?
-          this.computedPaddingLeft :
-          this.computedPaddingRight
+          this.$vuetify.rtl
+            ? this.computedPaddingLeft
+            : this.computedPaddingRight
         }px`
       }
 

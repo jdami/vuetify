@@ -35,7 +35,7 @@ export default {
       }
     },
     dir () {
-      return this.$vuetify.rtl ? 'rtl' : 'auto';
+      return this.$vuetify.rtl ? 'rtl' : 'ltr'
     }
   },
 
