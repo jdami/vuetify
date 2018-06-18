@@ -17,16 +17,19 @@ const Vuetify: VuetifyPlugin = {
     checkVueVersion(Vue)
 
     const lang = genLang(opts.lang)
-    document.documentElement.dir = ''
-    
+
     Vue.prototype.$vuetify = new Vue({
+      created () {
+        // Causes html elements 'dir' attribute to be set initially
+        if (this.rtl !== undefined) this.rtl = this.rtl
+      },
       data: {
         application,
         breakpoint: {},
         dark: false,
         icons: icons(opts.iconfont, opts.icons),
         lang,
-        _rtl: opts.rtl || false,
+        _rtl: opts.rtl,
         options: options(opts.options),
         theme: theme(opts.theme)
       },
