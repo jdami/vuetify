@@ -17,8 +17,8 @@ const Vuetify: VuetifyPlugin = {
     checkVueVersion(Vue)
 
     const lang = genLang(opts.lang)
-    let _rtl: boolean
-
+    document.documentElement.dir = ''
+    
     Vue.prototype.$vuetify = new Vue({
       created () {
         // Causes html elements 'dir' attribute to be set initially
