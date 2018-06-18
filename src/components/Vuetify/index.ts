@@ -17,8 +17,12 @@ const Vuetify: VuetifyPlugin = {
     checkVueVersion(Vue)
 
     const lang = genLang(opts.lang)
+    let _rtl: boolean
 
     Vue.prototype.$vuetify = new Vue({
+      mounted () {
+        this.rtl = opts.rtl || false
+      },
       data: {
         application,
         breakpoint: {},
@@ -26,12 +30,26 @@ const Vuetify: VuetifyPlugin = {
         icons: icons(opts.iconfont, opts.icons),
         lang,
         options: options(opts.options),
-        rtl: opts.rtl,
         theme: theme(opts.theme)
       },
       methods: {
         goTo,
         t: lang.t.bind(lang)
+      },
+      computed: {
+        rtl: {
+          get () {
+            return _rtl
+          },
+          set (val: boolean) {
+            if (val) {
+              document.documentElement.dir = 'rtl'
+            } else {
+              document.documentElement.dir = 'ltr'
+            }
+            _rtl = val
+          }
+        }
       }
     })
 
