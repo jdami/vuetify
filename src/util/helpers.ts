@@ -258,11 +258,3 @@ export const keyCodes = Object.freeze({
   pageup: 33,
   pagedown: 34
 })
-
-export function syncPageDirection (rtl: Boolean) {
-  if (rtl) {
-    document.documentElement.dir = 'rtl'
-  } else {
-    document.documentElement.dir = 'ltr'
-  }
-}

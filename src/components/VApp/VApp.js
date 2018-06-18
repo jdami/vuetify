@@ -41,8 +41,7 @@ export default {
   watch: {
     dark () {
       this.$vuetify.dark = this.dark
-    },
-    '$vuetify.rtl': () => syncPageDirection(this.$vuetify.rtl)
+    }
   },
 
   mounted () {
