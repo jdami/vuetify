@@ -43,11 +43,7 @@ const Vuetify: VuetifyPlugin = {
             return this.$data._rtl
           },
           set (val: boolean) {
-            if (val) {
-              document.documentElement.dir = 'rtl'
-            } else {
-              document.documentElement.dir = 'ltr'
-            }
+            document.documentElement.dir = val ? 'rtl' : 'ltr'
             this.$data._rtl = val
           }
         }
