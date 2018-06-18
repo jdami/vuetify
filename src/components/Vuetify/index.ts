@@ -17,18 +17,16 @@ const Vuetify: VuetifyPlugin = {
     checkVueVersion(Vue)
 
     const lang = genLang(opts.lang)
-    let _rtl: boolean
-
+    document.documentElement.dir = ''
+    
     Vue.prototype.$vuetify = new Vue({
-      mounted () {
-        this.rtl = opts.rtl || false
-      },
       data: {
         application,
         breakpoint: {},
         dark: false,
         icons: icons(opts.iconfont, opts.icons),
         lang,
+        _rtl: opts.rtl || false,
         options: options(opts.options),
         theme: theme(opts.theme)
       },
@@ -38,8 +36,8 @@ const Vuetify: VuetifyPlugin = {
       },
       computed: {
         rtl: {
-          get () {
-            return _rtl
+          get (): boolean {
+            return this.$data._rtl
           },
           set (val: boolean) {
             if (val) {
@@ -47,7 +45,7 @@ const Vuetify: VuetifyPlugin = {
             } else {
               document.documentElement.dir = 'ltr'
             }
-            _rtl = val
+            this.$data._rtl = val
           }
         }
       }
