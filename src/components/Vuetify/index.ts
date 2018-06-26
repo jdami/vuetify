@@ -20,12 +20,17 @@ const Vuetify: VuetifyPlugin = {
     // private rtl variable
     let _rtl: boolean
     Vue.prototype.$vuetify = new Vue({
+      created () {
+        // Causes html elements 'dir' attribute to be set initially
+        if (this.rtl !== undefined) this.rtl = this.rtl
+      },
       data: {
         application,
         breakpoint: {},
         dark: false,
         icons: icons(opts.iconfont, opts.icons),
         lang,
+        _rtl: opts.rtl,
         options: options(opts.options),
         theme: theme(opts.theme)
       },
@@ -47,6 +52,17 @@ const Vuetify: VuetifyPlugin = {
       methods: {
         goTo,
         t: lang.t.bind(lang)
+      },
+      computed: {
+        rtl: {
+          get (): boolean {
+            return this.$data._rtl
+          },
+          set (val: boolean) {
+            document.documentElement.dir = val ? 'rtl' : 'ltr'
+            this.$data._rtl = val
+          }
+        }
       }
     })
 
